@@ -1,0 +1,28 @@
+<div *ngIf="selectedLesson" class="details">
+  <h4>You selected: <h3 [ngStyle]="{color: 'royalblue'}">{{selectedLesson.name}}.</h3> Details:</h4>
+  <form #lessonForm="ngForm" class="row form">
+      <label for="name">Edit Lesson</label>
+      <input type="text"
+             id="name"
+             class="form-control"
+             value={{selectedLesson.name}}
+             [(ngModel)]="selectedLesson.name"
+             name="name"
+             required>
+
+    <label for="hour">Edit Hours</label>
+    <input type="number"
+           id="hour"
+           class="form-control"
+           value={{selectedLesson.hour}}
+           [(ngModel)]="selectedLesson.hour"
+           name="hour"
+           required>
+    <button
+      class="btn btn-success"
+      (click)="onEditLesson(selectedLesson)">Edit and Save</button>
+    <button
+      class="btn btn-danger"
+      (click)="onDeleteLesson(selectedLesson)">Delete</button>
+  </form>
+</div>

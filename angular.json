@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lessons-app"
+    }
+  },
+  "defaultProject": "lessons-app",
+  "cli": {
+    "analytics": "1d0bbc1f-9e87-4dea-9aac-565b49f7e687"
+  }
 }

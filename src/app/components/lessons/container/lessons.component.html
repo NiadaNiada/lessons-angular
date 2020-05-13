@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="my-card-header">Lessons</h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <app-lessons-details
+          [lessons]="lessons"
+          (add)="onAdd($event)"
+          (select)="onSelect($event)">
+        </app-lessons-details>
+      </div>
+      <div class="col-md-6">
+        <h4 [ngStyle]="{color: lessons.length > 5 ? 'red' : 'blue'}">You have in total {{ lessons.length}} lessons</h4>
+        <h4>You have in total {{totalHours}} Hours</h4>
+        <app-selected-lesson
+          [selectedLesson]="selectedLesson"
+          (edit)="onEdit($event)"
+          (delete)="onDelete($event)"
+        ></app-selected-lesson>
+      </div>
+    </div>
+  </div>
+</div>
