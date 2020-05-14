@@ -14,8 +14,10 @@ export class LessonsDetailsComponent {
   @Output() add = new EventEmitter();
   @Output() select = new EventEmitter();
 
-
   onSubmit(lessonForm: NgForm) {
+    if (!lessonForm.valid){
+      return;
+    }
     const formValue = lessonForm.value;
     this.add.emit(formValue);
     lessonForm.reset('');

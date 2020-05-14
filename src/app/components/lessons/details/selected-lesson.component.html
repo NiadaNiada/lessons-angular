@@ -1,26 +1,37 @@
 <div *ngIf="selectedLesson" class="details">
-  <h4>You selected: <h3 [ngStyle]="{color: 'royalblue'}">{{selectedLesson.name}}.</h3> Details:</h4>
-  <form #lessonForm="ngForm" class="row form">
+  <h4>You selected: <h3 [ngStyle]="{color: 'royalblue'}">{{selectedLesson.name}}</h3> Details:</h4>
+  <form #lessonForm="ngForm" (ngSubmit)="onEditLesson(lessonForm)" class="row form">
       <label for="name">Edit Lesson</label>
+    <div class="form-group">
       <input type="text"
              id="name"
+             [ngClass]="{ 'is-invalid': submitted }"
              class="form-control"
-             value={{selectedLesson.name}}
              [(ngModel)]="selectedLesson.name"
              name="name"
              required>
-
+      <div [hidden]="selectedLesson.name || lessonForm.submitted"
+           class="alert alert-danger">
+        Lesson name is required
+      </div>
+    </div>
     <label for="hour">Edit Hours</label>
+    <div class="form-group">
     <input type="number"
            id="hour"
            class="form-control"
-           value={{selectedLesson.hour}}
            [(ngModel)]="selectedLesson.hour"
            name="hour"
            required>
+      <div [hidden]="selectedLesson.hour || lessonForm.submitted"
+           class="alert alert-danger">
+        Hour is required
+      </div>
+    </div>
     <button
       class="btn btn-success"
-      (click)="onEditLesson(selectedLesson)">Edit and Save</button>
+      [disabled]="!lessonForm.valid"
+      (click)="onEditLesson(lessonForm)">Edit and Save</button>
     <button
       class="btn btn-danger"
       (click)="onDeleteLesson(selectedLesson)">Delete</button>

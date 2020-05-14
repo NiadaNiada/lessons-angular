@@ -17,7 +17,7 @@
            name="hour"
            required>
   </div>
-  <button class="btn btn-primary col-md-2">Add</button>
+  <button [disabled]="!lessonForm.valid" class="btn btn-primary col-md-2">Add</button>
 </form>
 <table class="table">
   <thead>

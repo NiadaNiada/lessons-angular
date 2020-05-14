@@ -39,7 +39,8 @@ export class LessonsComponent implements OnInit {
   }
 
   onAdd(lesson: Lesson) {
-    this.lessons = this.lessons.concat(lesson);
+    this.lessonsService.addLesson(lesson);
+    this.lessons = this.lessonsService.getAllLessons();
     this.calculateTotalHours();
   }
 
@@ -54,6 +55,5 @@ export class LessonsComponent implements OnInit {
     });
     this.selectedLesson = null;
     this.calculateTotalHours();
-
   }
 }

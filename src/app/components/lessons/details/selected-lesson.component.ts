@@ -14,6 +14,7 @@ export class SelectedLessonComponent implements OnInit {
   @Input() selectedLesson: Lesson;
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
+  submitted = false;
 
   constructor(private lessonsService: LessonsService) {
   }
@@ -26,13 +27,14 @@ export class SelectedLessonComponent implements OnInit {
     this.delete.emit(lesson);
   }
 
-  onEditLesson(lesson: Lesson) {
-    this.edit.emit(lesson);
+  onEditLesson(lessonForm: NgForm) {
+    this.submitted = true;
+    if (!lessonForm.valid){
+      return;
+    }
+    const formValue = lessonForm.value;
+    this.edit.emit(formValue);
+    this.submitted = false;
   }
-  // onEditLesson(lessonForm: NgForm) {
-  //   const formValue = lessonForm.value;
-  //   this.edit.emit(formValue);
-  // }
-
 
 }
