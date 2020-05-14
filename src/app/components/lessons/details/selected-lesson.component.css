@@ -1,0 +1,25 @@
+.btn {
+  margin: 15px;
+}
+
+.table {
+  margin: 10px;
+}
+
+.details {
+  border-radius: 3px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border: solid 1px blanchedalmond;
+  margin: 15px;
+  background: darkseagreen;
+}
+.details h3, .details h4 {
+  text-align: center;
+  color: azure;
+  margin: 10px;
+}
+.details .form {
+  margin: 10px;
+}
+
+/*# sourceMappingURL=selected-lesson.component.css.map */
